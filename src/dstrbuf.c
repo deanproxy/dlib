@@ -144,11 +144,19 @@ dsbCat(dstrbuf *dest, const char *src)
 
 	assert(dest != NULL);
 	totalSize = dest->len + length;
+	if (*src == '.') {
+		totalSize ++;
+	}
 	if (totalSize > dest->size) {
 		dsbResize(dest, totalSize);
 	}
-	memcpy(dest->str + dest->len, src, length);
-	dest->len += length;
+	if (*src == '.') {
+		dest->str[dest->len] = '.';
+		memcpy(dest->str + dest->len + 1, src, length);
+	} else {
+		memcpy(dest->str + dest->len, src, length);
+	}
+	dest->len = totalSize;
 	dest->str[dest->len] = '\0';
 	return length;
 }

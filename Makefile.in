@@ -23,6 +23,9 @@ FILES = src/dnet.o src/dhash.o src/dlist.o src/dstrbuf.o src/dutil.o src/dvector
 
 .PHONY: all clean-all clean distclean install uninstall
 
+.c.o:
+	$(CC) $(CFLAGS) -c $*.c -o $*.o
+
 all: $(FILES)
 	ar rc libdlib.a $(FILES)
 

@@ -13,6 +13,7 @@ exec_prefix = @exec_prefix@
 bindir = @bindir@
 sbindir = @sbindir@
 libdir = @libdir@
+includedir = @includedir@
 mandir = @mandir@
 docdir = @docdir@
 sysconfdir = @sysconfdir@
@@ -41,7 +42,9 @@ dhashtest:
 
 install:
 	mkdir -p $(DESTDIR)/$(libdir)/
+	mkdir -p $(DESTDIR)/$(includedir)/dlib/
 	install -m0644 libdlib.a $(DESTDIR)/$(libdir)/
+	install -m0644 include/* $(DESTDIR)/$(includedir)/dlib/
 
 clean:
 	rm -f src/*.o *.so *.a test

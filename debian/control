@@ -1,0 +1,16 @@
+Source: dlib
+Section: mail
+Priority: optional
+Maintainer: Mikhail Novosyolov <mikhailnov@dumalogiya.ru>
+Standards-Version: 4.1.4
+Homepage: https://github.com/deanproxy/dlib
+Build-Depends: debhelper (>=9),
+               libssl-dev
+
+Package: dlib-dev
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Some C utility functions
+ Static library with some C utility functions
+ that are used by email program 

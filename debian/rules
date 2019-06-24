@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+# Fail the build if some produced files
+# are not included in neither of multiple packages
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_auto_test:
+	echo "Tests are broken in upstream"
+
+%:
+	dh $@
